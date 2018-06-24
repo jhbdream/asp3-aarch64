@@ -116,13 +116,13 @@ aarch64_get_daif(void){
 Inline void
 aarch64_enable_intr(void) {
 
-	__asm__ __volatile__ ("msr daifset, %0\n\t" : : "i"(AARCH64_DAIF_IRQ));
+	__asm__ __volatile__ ("msr daifclr, %0\n\t" : : "i"(AARCH64_DAIF_IRQ));
 }
 
 Inline void
 aarch64_disable_intr(void) {
 
-	__asm__ __volatile__ ("msr daifclr, %0\n\t" : : "i"(AARCH64_DAIF_IRQ));
+	__asm__ __volatile__ ("msr daifset, %0\n\t" : : "i"(AARCH64_DAIF_IRQ));
 }
 #endif  /*  TECSGEN  */
 #endif  /*  TOPPERS_MACRO_ONLY  */
